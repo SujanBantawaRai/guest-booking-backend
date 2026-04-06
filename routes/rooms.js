@@ -5,9 +5,9 @@ const { protect, isAdmin } = require('../middleware/auth');
 
 // Public routes
 router.get('/', getRooms);
-router.get('/seed', seedRooms); 
 
 // Admin-only routes
+router.post('/seed', protect, isAdmin, seedRooms);
 router.post('/', protect, isAdmin, addRoom);
 router.patch('/:roomNumber/images', protect, isAdmin, updateRoomImages);
 router.put('/:id', protect, isAdmin, updateRoom);
