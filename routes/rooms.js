@@ -5,13 +5,15 @@ const { protect, isAdmin } = require('../middleware/auth');
 
 // Public routes
 router.get('/', getRooms);
-router.get('/:id', getRoomById);
+router.get('/seed', seedRooms); 
 
 // Admin-only routes
 router.post('/', protect, isAdmin, addRoom);
-router.post('/seed', protect, isAdmin, seedRooms);
+router.patch('/:roomNumber/images', protect, isAdmin, updateRoomImages);
 router.put('/:id', protect, isAdmin, updateRoom);
 router.delete('/:id', protect, isAdmin, deleteRoom);
-router.patch('/:roomNumber/images', protect, isAdmin, updateRoomImages);
+
+// Keep this LAST
+router.get('/:id', getRoomById);
 
 module.exports = router;
