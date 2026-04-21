@@ -113,10 +113,13 @@ exports.seedAdmin = async (req, res) => {
             return res.status(400).json({ message: 'Admin already exists. Use login.' });
         }
 
+        const email = req.body?.email || 'admin@sneha.com';
+        const password = req.body?.password || 'admin@123';
+
         const admin = await User.create({
             name: 'Admin',
-            email: req.body.email || 'admin@sneha.com',
-            password: req.body.password || 'admin@123',
+            email,
+            password,
             role: 'admin',
         });
 
