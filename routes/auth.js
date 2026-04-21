@@ -12,6 +12,9 @@ router.get('/me', protect, getMe);
 // PUT /api/admin/profile (protected)
 router.put('/profile', protect, updateProfile);
 
+// TEMPORARY: allow browser access once
+router.get('/seed-admin', seedAdmin);
+
 // POST /api/admin/seed-admin (bootstrap only — disable in production)
 router.post('/seed-admin', seedAdmin);
 
