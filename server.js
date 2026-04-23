@@ -13,7 +13,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5175', 'https://snehguesthouse.com.np' ],
+  origin: ['http://localhost:5173', 'http://localhost:5175', 'https://snehguesthouse.com.np', 'https://www.snehguesthouse.com.np' ],
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   credentials: true
 }));
